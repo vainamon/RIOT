@@ -1,0 +1,9 @@
+/**
+@defgroup    boards_stm32f4xx STM32F4XX
+@ingroup     boards
+@brief       Support for the China STM32F4XX board
+
+## Overview
+
+See [this page](https://os.mbed.com/users/hudakz/code/STM32F407VET6_Hello/)
+for a quick getting started guide.
