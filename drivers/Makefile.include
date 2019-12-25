@@ -98,6 +98,10 @@ ifneq (,$(filter encx24j600,$(USEMODULE)))
   USEMODULE_INCLUDES += $(RIOTBASE)/drivers/encx24j600/include
 endif
 
+ifneq (,$(filter dose,$(USEMODULE)))
+  USEMODULE_INCLUDES += $(RIOTBASE)/drivers/dose/include
+endif
+
 ifneq (,$(filter feetech,$(USEMODULE)))
   USEMODULE_INCLUDES += $(RIOTBASE)/drivers/feetech/include
 endif
@@ -272,6 +276,10 @@ endif
 
 ifneq (,$(filter sht3x,$(USEMODULE)))
   USEMODULE_INCLUDES += $(RIOTBASE)/drivers/sht3x/include
+endif
+
+ifneq (,$(filter shtc1,$(USEMODULE)))
+  USEMODULE_INCLUDES += $(RIOTBASE)/drivers/shtc1/include
 endif
 
 ifneq (,$(filter si114x,$(USEMODULE)))
