@@ -1,5 +1,5 @@
-APPLICATION = mpu_test
-RIOTBASE ?= $(CURDIR)/../..
+APPLICATION = esp01s_at_client
+RIOTBASE ?= $(CURDIR)/../../..
 BOARD ?= stm32f4xx
 QUIET ?= 1
 
@@ -8,11 +8,11 @@ QUIET ?= 1
 # development process:
 DEVELHELP ?= 1
 
-USEMODULE += xtimer
+USEMODULE += at
 USEMODULE += periph_dma
-USEMODULE += mpu9250
 
 CFLAGS += -DUART_USE_DMA
 CFLAGS += -DSPI_USE_DMA
+CFLAGS += -DAT_PRINT_INCOMING=0 -DAT_SEND_ECHO=0 -DAT_SEND_EOL=\"\\r\\n\"
 
 include $(RIOTBASE)/Makefile.include

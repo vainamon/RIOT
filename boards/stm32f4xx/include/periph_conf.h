@@ -11,7 +11,7 @@
  * @{
  *
  * @file
- * @brief       Board specific definitions for the China STM32F4XX evaluation board
+ * @brief       Board specific definitions for the Chinese STM32F4XX evaluation board
  *
  * @author      Danilov Igor <danilov@superevm.ru>
  */
@@ -36,13 +36,15 @@ static const dma_conf_t dma_config[] = {
     { .stream = 15 },    /* DMA2 Stream 7 - USART1_TX */
 	{ .stream = 10 },    /* DMA2 Stream 2 - SPI1_RX */
 	{ .stream = 11 },    /* DMA2 Stream 3 - SPI1_TX */
-	{ .stream = 8  },    /* DMA2 Stream 3 - FSMC */
+	{ .stream = 8  },    /* DMA2 Stream 0 - FSMC */
+    { .stream = 6  },    /* DMA1 Stream 6 - USART2_TX */
 };
 
 #define DMA_0_ISR  			(isr_dma2_stream7)
 #define DMA_1_ISR  			(isr_dma2_stream2)
 #define DMA_2_ISR  			(isr_dma2_stream3)
 #define DMA_3_ISR  			(isr_dma2_stream0)
+#define DMA_4_ISR  			(isr_dma1_stream6)
 
 #define DMA_NUMOF           ARRAY_SIZE(dma_config)
 #endif
@@ -85,10 +87,25 @@ static const uart_conf_t uart_config[] = {
         .dma 		= 0,
         .dma_chan   = 4
 #endif
-    }
+    },
+    {
+        .dev        = USART2,
+        .rcc_mask   = RCC_APB1ENR_USART2EN,
+        .rx_pin     = GPIO_PIN(PORT_A, 3),
+        .tx_pin     = GPIO_PIN(PORT_A, 2),
+        .rx_af      = GPIO_AF7,
+        .tx_af      = GPIO_AF7,
+        .bus        = APB1,
+        .irqn       = USART2_IRQn,
+#ifdef UART_USE_DMA
+        .dma 		= 4,
+        .dma_chan   = 4
+#endif
+    },
 };
 
 #define UART_0_ISR          (isr_usart1)
+#define UART_1_ISR          (isr_usart2)
 
 #define UART_NUMOF          ARRAY_SIZE(uart_config)
 /** @} */
@@ -98,22 +115,23 @@ static const uart_conf_t uart_config[] = {
  * @{
  */
 static const spi_conf_t spi_config[] = {
+	//	NRF24L01 connector
     {
         .dev      = SPI1,
         .mosi_pin = GPIO_PIN(PORT_B, 5),
         .miso_pin = GPIO_PIN(PORT_B, 4),
         .sclk_pin = GPIO_PIN(PORT_B, 3),
         .cs_pin   = GPIO_PIN(PORT_B, 7),
-        .mosi_af  = GPIO_AF5,
+		.mosi_af  = GPIO_AF5,
         .miso_af  = GPIO_AF5,
         .sclk_af  = GPIO_AF5,
         .cs_af    = GPIO_AF5,
         .rccmask  = RCC_APB2ENR_SPI1EN,
         .apbbus   = APB2,
 #ifdef SPI_USE_DMA
-		.tx_dma 		= 1,
+		.tx_dma 		= 2,
 		.tx_dma_chan 	= 3,
-		.rx_dma 		= 2,
+		.rx_dma 		= 1,
 		.rx_dma_chan 	= 3
 #endif
     }

@@ -1,6 +1,6 @@
-APPLICATION = nrf24l01p_test
-RIOTBASE ?= $(CURDIR)/../..
-BOARD ?= native
+APPLICATION = nrf24l01p_sender
+RIOTBASE ?= $(CURDIR)/../../..
+BOARD ?= stm32f4xx
 QUIET ?= 1
 
 # Comment this out to disable code in RIOT that does safety checking
@@ -8,11 +8,9 @@ QUIET ?= 1
 # development process:
 DEVELHELP ?= 1
 
-USEMODULE += shell
-USEMODULE += shell_commands
-USEMODULE += ps
 USEMODULE += xtimer
 USEMODULE += nrf24l01p
+USEMODULE += periph_dma
 
 # set default device parameters in case they are undefined
 SPI_PORT ?= SPI_DEV\(0\)

@@ -1,6 +1,6 @@
 APPLICATION = tft-lcd-test
 RIOTBASE ?= $(CURDIR)/../..
-BOARD ?= native
+BOARD ?= stm32f4xx
 QUIET ?= 1
 
 # Comment this out to disable code in RIOT that does safety checking

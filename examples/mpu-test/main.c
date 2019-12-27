@@ -1,9 +1,9 @@
 /*
- * Copyright (C) 2015 Kaspar Schleiser <kaspar@schleiser.de>
+ * Copyright (C) 2019 Supercomputers and Neurocomputers Research Center
  *
- * This file is subject to the terms and conditions of the GNU Lesser
- * General Public License v2.1. See the file LICENSE in the top level
- * directory for more details.
+ * This file is subject to the terms and conditions of the GNU Lesser General
+ * Public License v2.1. See the file LICENSE in the top level directory for more
+ * details.
  */
 
 /**
@@ -11,11 +11,9 @@
  * @{
  *
  * @file
- * @brief       example application for setting a periodic wakeup
+ * @brief       Test application for MPU9X50 driver
  *
- * @author      Kaspar Schleiser <kaspar@schleiser.de>
- *
- * @}
+ * @author      Danilov Igor <danilov@superevm.ru>
  */
 
 #include <stdio.h>

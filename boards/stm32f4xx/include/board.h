@@ -11,7 +11,7 @@
  * @{
  *
  * @file
- * @brief       Board specific definitions for the China STM32F4XX evaluation board
+ * @brief       Board specific definitions for the Chinese STM32F4XX evaluation board
  *
  * @author      Danilov Igor <danilov@superevm.ru>
  */
@@ -71,6 +71,29 @@ extern "C" {
 #define BTN1_MODE           GPIO_IN
 /** @} */
 
+
+/**
+ * @name        SX127X
+ *
+ * SX127X configuration (RA-01 on NRF24L01 port).
+ * @{
+ */
+#define SX127X_PARAM_SPI                    (SPI_DEV(0))
+
+#define SX127X_PARAM_SPI_NSS                GPIO_PIN(PORT_B, 7)        /* PB7 */
+
+#define SX127X_PARAM_RESET                  GPIO_PIN(PORT_B, 6)        /* PB6 */
+
+#define SX127X_PARAM_DIO0                   GPIO_PIN(PORT_B, 8)        /* PB8 */
+
+#define SX127X_PARAM_DIO1                   GPIO_UNDEF
+
+#define SX127X_PARAM_DIO2                   GPIO_UNDEF
+
+#define SX127X_PARAM_DIO3                   GPIO_UNDEF
+
+#define SX127X_PARAM_PASELECT               (SX127X_PA_BOOST)
+/** @} */
 
 /**
  * @brief Initialize board specific hardware, including clock, LEDs and std-IO
